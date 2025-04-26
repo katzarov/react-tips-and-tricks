@@ -9,16 +9,12 @@ type RoutesObject = {
 
 export const routes: RoutesObject = {
   root: { path: "/", description: "home" },
-  searchInput: {
-    path: "/search-input",
-    description: "optimized controlled search input",
+  recursiveMenu: {
+    path: "/recursive-menu",
+    description: "recursive menu",
   },
   // dataFetching: {
   //   path: "/data-fetching",
   //   description: "useEffect data fething",
-  // },
-  // recursiveTreeMenu: {
-  //   path: "/recursive-tree-menu",
-  //   description: "recursive tree menu",
   // },
 };

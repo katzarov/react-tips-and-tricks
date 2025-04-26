@@ -1,7 +1,8 @@
+import { StrictMode } from "react";
 import { createBrowserRouter } from "react-router";
 import { App } from "./App";
 import { routes } from "./routes";
-import { SeachInput } from "./examples/search-input/SearchInput";
+import { RecursiveMenu } from "./examples/recursive-menu/RecursiveMenu";
 
 export const router = createBrowserRouter([
   {
@@ -15,6 +16,12 @@ export const router = createBrowserRouter([
       {
         path: routes.searchInput.path,
         element: <SeachInput />,
+        path: routes.recursiveMenu.path,
+        element: (
+          <StrictMode>
+            <RecursiveMenu />
+          </StrictMode>
+        ),
       },
     ],
   },
