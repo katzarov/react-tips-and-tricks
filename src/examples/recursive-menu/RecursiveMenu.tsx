@@ -40,27 +40,19 @@ export const RecursiveMenu = () => {
       };
 
       return (
-        <li key={node.id} style={{ userSelect: "none" }}>
+        <li key={node.id} className="select-none">
           <button
             onClick={handleClick}
+            className="flex items-center w-full text-left cursor-pointer"
             style={{
-              display: "flex",
-              alignItems: "center",
-              width: "100%",
-              textAlign: "left",
-              padding: "4px 0",
               paddingLeft: `${level * 20}px`,
-              background: "none",
-              border: "none",
-              cursor: "pointer",
               fontWeight: selected?.id === node.id ? "bold" : "normal",
             }}
           >
             {hasChildren && (
               <span
+                className="inline-block mr-1"
                 style={{
-                  display: "inline-block",
-                  marginRight: 4,
                   transition: "transform 0.2s",
                   transform: isOpen ? "rotate(90deg)" : "none",
                 }}
@@ -72,7 +64,7 @@ export const RecursiveMenu = () => {
           </button>
 
           {hasChildren && isOpen && (
-            <ul style={{ listStyle: "none", paddingLeft: 0 }}>
+            <ul className="list-none pl-0">
               {renderItems(node.children!, level + 1)}
             </ul>
           )}
@@ -82,20 +74,10 @@ export const RecursiveMenu = () => {
 
   return (
     <div style={{ width: "100%" }}>
-      <ul style={{ listStyle: "none", paddingLeft: 0 }}>
-        {renderItems(menuItems)}
-      </ul>
+      <ul className="list-none pl-0">{renderItems(menuItems)}</ul>
 
       {selected && (
-        <div
-          style={{
-            marginTop: 16,
-            padding: 8,
-            borderRadius: 4,
-            background: "#f0f0f0",
-            fontSize: 14,
-          }}
-        >
+        <div className="mt-1 p-2 border-2 rounded-md bg-amber-300 text-lg">
           Selected: {selected.name} (id: {selected.id})
         </div>
       )}
